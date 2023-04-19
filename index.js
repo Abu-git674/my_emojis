@@ -7,7 +7,7 @@ const popBtn = document.getElementById("pop-btn");
 const shiftBtn = document.getElementById("shift-btn");
 
 function renderEmojis(containerID, myEmojisArray) {
-  const container = containerID
+  let container = containerID
   container.innerHTML = "";
   for (let i = 0; i < myEmojisArray.length; i++) {
     const emoji = document.createElement("span");
@@ -44,10 +44,10 @@ function modifyEmojis(action) {
     emojiInput.value = "";
   }
   if (action === "pop") {
-    myEmojis.pop(emojiInput.value);
+    myEmojis.pop();
   } else if (action === "shift") {
-    myEmojis.shift(emojiInput.value);
+    myEmojis.shift();
   }
 
-  renderEmojis();
+ renderEmojis(emojiContainer, myEmojis);
 }
